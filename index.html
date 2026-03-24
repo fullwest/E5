@@ -34,6 +34,7 @@
       <li><a href="#competences" class="nav-link" data-section="competences">Compétences</a></li>
       <li><a href="#projets" class="nav-link" data-section="projets">Projets</a></li>
       <li><a href="#stages" class="nav-link" data-section="stages">Stage</a></li>
+      <li><a href="#veille" class="nav-link" data-section="veille">Veille</a></li>
       <li><a href="#tableau" class="nav-link" data-section="tableau">E5</a></li>
       <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
     </ul>
@@ -93,7 +94,7 @@
         </div>
         <div class="about-text reveal-right">
           <p class="about-intro">Bonjour ! Je suis <strong>Enzo Baudrenghien</strong>, originaire de <strong>Tourcoing</strong>, étudiant en BTS SIO option SISR au lycée <strong>Saint-Rémi – site Léonard de Vinci</strong>.</p>
-          <p>Après une licence en gestion économique et scientifique à la <span class="highlight">Faculté de Gestion, Économique et Sciences de la Catho de Lille</span> (2023–2024) que j'ai quittée car le format ne me convenait pas, je me suis réorienté vers l'informatique et les réseaux — une passion que j'ai concrétisée à travers des projets techniques (MITM SSH, FOG, firewall pfSense, infrastructure Cisco, ToIP…) et deux stages en entreprise.</p>
+          <p>Après une licence en gestion économique et scientifique à la <span class="highlight">Faculté de Gestion, Économique et Sciences de la Catho de Lille</span> (2023–2024) que j'ai quittée car le format ne me convenait pas, j'ai réorienté vers l'informatique et les réseaux — une passion que j'ai concrétisée à travers des projets techniques (MITM SSH, FOG, firewall pfSense, infrastructure Cisco, ToIP…) et deux stages en entreprise.</p>
           <p>Mon objectif : devenir <span class="highlight">technicien réseau et sécurité</span>, en maîtrisant les infrastructures modernes, la gestion cloud (Aruba Central / HPE GreenLake) et la protection des systèmes d'information.</p>
           <div class="about-infos">
             <div class="info-item"><i class="fa fa-map-marker-alt"></i> <span>Tourcoing, Nord (59)</span></div>
@@ -362,7 +363,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-num">04</span>
-        <h2 class="section-title">Mes <span class="accent">stages</span></h2>
+        <h2 class="section-title">Mon <span class="accent">stage</span></h2>
         <div class="section-line"></div>
       </div>
       <div class="timeline">
@@ -418,7 +419,94 @@
   </section>
 
 
-<!-- TABLEAU E5 -->
+<!-- VEILLE TECHNOLOGIQUE -->
+  <section class="veille section" id="veille">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Veille <span class="accent">technologique</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="veille-intro reveal">Dans le domaine SISR, la veille technologique est essentielle pour anticiper les évolutions des infrastructures, des menaces et des outils. Je maintiens une surveillance active sur les sujets suivants.</p>
+      <div class="veille-grid">
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-shield-halved"></i></div>
+          <span class="veille-tag">Cybersécurité</span>
+          <h3>Menaces & Vulnérabilités</h3>
+          <p>Suivi des CVE critiques (NVD), alertes ANSSI/CERT-FR, nouvelles techniques d'attaque (Zero-Day, ransomware). Application concrète lors du TP VSFTPD 2.3.4 et MITM SSH.</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> CERT-FR</span>
+            <span><i class="fa fa-link"></i> NVD NIST</span>
+            <span><i class="fa fa-link"></i> ANSSI</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-network-wired"></i></div>
+          <span class="veille-tag">Réseau</span>
+          <h3>SD-WAN & Zero Trust</h3>
+          <p>Évolution des architectures réseau vers le SD-WAN, SASE et Zero Trust Network Access (ZTNA). Suivi des solutions Aruba EdgeConnect, HPE GreenLake et Fortinet Secure SD-WAN.</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> HPE / Aruba</span>
+            <span><i class="fa fa-link"></i> Fortinet Blog</span>
+            <span><i class="fa fa-link"></i> Cisco Newsroom</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-cloud"></i></div>
+          <span class="veille-tag">Cloud & Virtualisation</span>
+          <h3>Infrastructure Cloud Hybride</h3>
+          <p>Suivi des évolutions d'Aruba Central / HPE GreenLake, des pratiques DevOps appliquées aux infra (IaC), et de la conteneurisation (Docker, Kubernetes) pour les services réseau.</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> HPE GreenLake</span>
+            <span><i class="fa fa-link"></i> The New Stack</span>
+            <span><i class="fa fa-link"></i> InfoQ</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-linux"></i></div>
+          <span class="veille-tag">Système</span>
+          <h3>Linux & Open Source</h3>
+          <p>Veille sur les distributions Debian/Ubuntu, les outils de supervision (Zabbix, Grafana), et les nouvelles versions des logiciels libres utilisés (FOG, rsync, OpenSSH, pfSense/OPNsense).</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> Linux Weekly News</span>
+            <span><i class="fa fa-link"></i> Phoronix</span>
+            <span><i class="fa fa-link"></i> Reddit r/sysadmin</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-robot"></i></div>
+          <span class="veille-tag">IA & Automatisation</span>
+          <h3>IA appliquée à la cybersécurité</h3>
+          <p>Émergence de l'IA dans la détection d'intrusion (SIEM/SOAR augmentés), l'automatisation des réponses aux incidents et la génération de scripts d'administration. Veille sur CrowdStrike, Darktrace.</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> Dark Reading</span>
+            <span><i class="fa fa-link"></i> Bleeping Computer</span>
+            <span><i class="fa fa-link"></i> Threatpost</span>
+          </div>
+        </div>
+
+        <div class="veille-card reveal">
+          <div class="veille-icon"><i class="fa fa-graduation-cap"></i></div>
+          <span class="veille-tag">Certifications</span>
+          <h3>Certifications & Formations</h3>
+          <p>Préparation aux certifications réseau et sécurité : Aruba Certified Switching Associate (ACSA), CompTIA Security+, et suivi de la roadmap vers le CCNA Cisco pour consolider mes compétences infrastructure.</p>
+          <div class="veille-sources">
+            <span><i class="fa fa-link"></i> HPE Aruba</span>
+            <span><i class="fa fa-link"></i> CompTIA</span>
+            <span><i class="fa fa-link"></i> Cisco Learning</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU E5 -->
   <section class="tableau section" id="tableau">
     <div class="container">
       <div class="section-header">
@@ -456,17 +544,17 @@
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B6.1 – Mettre en place son environnement d'apprentissage personnel">B6.1</span></td>
               <td><a href="TP-Faille-Kali-Réponse.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
             <tr>
               <td>Déploiement automatisé de postes clients avec FOG</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">26/09/25 – 03/10/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.1 – Recenser et identifier les ressources numériques">B1.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B2.2 – Traiter des demandes concernant les services réseau et système">B2.2</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="FOG-Chassin-Baudrenghien-Renard.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
@@ -477,8 +565,8 @@
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B6.1 – Mettre en place son environnement d'apprentissage personnel">B6.1</span></td>
               <td><a href="Configuration_Windows_Server_Core.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
             <tr>
@@ -488,7 +576,7 @@
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="FireWall-Netgear-VPN.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
@@ -499,7 +587,7 @@
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="ToIP_TP.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
@@ -510,19 +598,19 @@
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="QoS.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
             <tr>
               <td>Sécurisation SSH contre les attaques MITM</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">04/12/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.3 – Mettre en place et vérifier les niveaux d'habilitation associés à un service">B1.3</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B2.2 – Traiter des demandes concernant les services réseau et système">B2.2</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.1 – Réaliser les tests d'intégration et d'acceptation d'un service">B5.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B6.2 – Mettre en œuvre des outils et stratégies de veille informationnelle">B6.2</span></td>
               <td><a href="baudrenghien-tp-mitmSSH.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
 
@@ -530,22 +618,22 @@
             <tr>
               <td>Support utilisateur &amp; déploiement équipements réseau Aruba — Mairie de Lille</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">19/05/25 – 27/06/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.1 – Recenser et identifier les ressources numériques">B1.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B2.1 – Collecter, suivre et orienter des demandes">B2.1</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td><a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B6.3 – Gérer son identité professionnelle">B6.3</span></td>
+              <td><span style="color:var(--text-dim);font-size:0.78rem">—</span></td>
             </tr>
             <tr>
               <td>AP2 M3 – Visiteurs at Home : infrastructure réseau GSB</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">06/05/25 – 09/05/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.1 – Recenser et identifier les ressources numériques">B1.1</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B4.1 – Analyser les objectifs et les modalités d'organisation d'un projet">B4.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="AP2___Mission_n_3_Visiteurs_at_Home-Baudrenghien.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
@@ -554,33 +642,33 @@
             <tr>
               <td>AP3-M1 : Installation infrastructure réseau M2L (CREANET)</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">09/09/25 – 07/10/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.1 – Recenser et identifier les ressources numériques">B1.1</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B4.1 – Analyser les objectifs et les modalités d'organisation d'un projet">B4.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="AP3M1-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN-ver1.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
             <tr>
               <td>Administration infrastructures critiques &amp; sécurisation des flux (Fortinet/Aruba Central) — Stage T.I.R.S Lille</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">05/01/26 – 20/02/26</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.1 – Recenser et identifier les ressources numériques">B1.1</span></td>
               <td style="text-align:center"></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B4.1 – Analyser les objectifs et les modalités d'organisation d'un projet">B4.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B6.3 – Gérer son identité professionnelle">B6.3</span></td>
               <td><a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
             <tr>
               <td>AP3-M2 : Stratégie de sauvegarde &amp; sécurisation des données (OpenDATASEC)</td>
               <td style="font-size:0.8rem;color:var(--text-dim)">13/11/25 – 09/12/25</td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B1.4 – Vérifier les conditions de la continuité d'un service informatique">B1.4</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B2.2 – Traiter des demandes concernant les services réseau et système">B2.2</span></td>
               <td style="text-align:center"></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
-              <td style="text-align:center"><span class="check">✓</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B4.1 – Analyser les objectifs et les modalités d'organisation d'un projet">B4.1</span></td>
+              <td style="text-align:center"><span class="subcomp" title="B5.2 – Déployer un service informatique">B5.2</span></td>
               <td style="text-align:center"></td>
               <td><a href="AP3M2-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN.pdf" download class="table-link"><i class="fa fa-download"></i></a></td>
             </tr>
@@ -602,7 +690,7 @@
         <div class="contact-socials-row reveal">
           <div class="contact-item">
             <div class="ci-icon"><i class="fa fa-envelope"></i></div>
-            <div><strong>Email</strong><br/><span>tronytdclan@gmail.com</span></div>
+            <div><strong>Email</strong><br/><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="77030518190e0313141b161937101a161e1b5914181a">[email&#160;protected]</a></span></div>
           </div>
           <div class="contact-item">
             <div class="ci-icon"><i class="fab fa-linkedin"></i></div>
@@ -629,9 +717,4 @@
         <a href="https://mail.google.com/mail/u/0/?fs=1&to=tronytdclan@gmail.com" aria-label="Email" target="_blank"><i class="fa fa-envelope"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">© 2025–2026 Enzo Baudrenghien — BTS SIO SISR — Promo 2026</div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="footer-bottom">© 2025–20

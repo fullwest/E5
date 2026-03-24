@@ -696,6 +696,29 @@ body:hover .cursor { transform: translate(-50%, -50%) scale(1); }
   background: rgba(247,151,22,0.1); border-color: var(--yellow);
 }
 
+/* Badge sous-compétence */
+.subcomp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--yellow);
+  background: rgba(247,151,22,0.12);
+  border: 1px solid rgba(247,151,22,0.35);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  letter-spacing: 0.04em;
+  cursor: help;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.subcomp:hover {
+  background: rgba(247,151,22,0.22);
+  border-color: var(--yellow);
+  box-shadow: 0 0 8px rgba(247,151,22,0.25);
+  transform: scale(1.08);
+}
+
 /* ─── Contact ─── */
 .contact { background: var(--bg2); }
 .contact-grid {
