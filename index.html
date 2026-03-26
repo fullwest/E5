@@ -1,512 +1,804 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BAUDRENGHIEN.ENZO — BTS SIO SISR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- BOOT LOADER -->
-<div id="boot" class="boot-screen">
-  <div class="boot-inner">
-    <div class="boot-logo">ENZO_BAUDRENGHIEN<span class="cur">█</span></div>
-    <div class="boot-lines" id="bootLines"></div>
-    <div class="boot-bar-wrap"><div class="boot-bar" id="bootBar"></div></div>
-    <div class="boot-status" id="bootStatus">INITIALIZING...</div>
+  <!-- BOOT LOADER -->
+  <div id="boot" class="boot-screen">
+    <div class="boot-inner">
+      <div class="boot-logo">ENZO_BAUDRENGHIEN<span class="cur">█</span></div>
+      <div class="boot-lines" id="bootLines"></div>
+      <div class="boot-bar-wrap">
+        <div class="boot-bar" id="bootBar"></div>
+      </div>
+      <div class="boot-status" id="bootStatus">INITIALIZING...</div>
+    </div>
   </div>
-</div>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-left">
-    <span class="nav-prompt">root@portfolio</span><span class="nav-sep">:</span><span class="nav-path">~/enzo</span><span class="nav-dollar">$</span>
-  </div>
-  <div class="nav-links" id="navLinks">
-    <a href="#about" data-s="about">about</a>
-    <a href="#skills" data-s="skills">skills</a>
-    <a href="#projects" data-s="projects">projects</a>
-    <a href="#stages" data-s="stages">stages</a>
-    <a href="#watch" data-s="watch">veille</a>
-    <a href="#e5" data-s="e5">E5</a>
-    <a href="#contact" data-s="contact">contact</a>
-  </div>
-  <button class="nav-burger" id="burger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-left">
+      <span class="nav-prompt">root@portfolio</span><span class="nav-sep">:</span><span
+        class="nav-path">~/enzo</span><span class="nav-dollar">$</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-s="about">about</a>
+      <a href="#skills" data-s="skills">skills</a>
+      <a href="#projects" data-s="projects">projects</a>
+      <a href="#stages" data-s="stages">stages</a>
+      <a href="#watch" data-s="watch">veille</a>
+      <a href="#e5" data-s="e5">E5</a>
+      <a href="#certifs" data-s="certifs">certifs</a>
+      <a href="#contact" data-s="contact">contact</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="pill">BTS SIO</span>
-      <span class="pill pill-accent">SISR</span>
-      <span class="pill">Promo 2024–2026</span>
-    </div>
-    <h1 class="hero-name">
-      <span class="name-enzo">Enzo</span>
-      <span class="name-b">Baudrenghien</span>
-    </h1>
-    <div class="hero-terminal">
-      <div class="ht-bar">
-        <span class="ht-dot r"></span>
-        <span class="ht-dot y"></span>
-        <span class="ht-dot g"></span>
-        <span class="ht-title">~/identity.sh</span>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="pill">BTS SIO</span>
+        <span class="pill pill-accent">SISR</span>
+        <span class="pill">Promo 2024–2026</span>
       </div>
-      <div class="ht-body">
-        <div class="ht-line"><span class="ht-prompt">$</span> <span class="ht-cmd" id="htCmd"></span><span class="ht-caret">█</span></div>
-        <div class="ht-output" id="htOutput"></div>
+      <h1 class="hero-name">
+        <span class="name-enzo">Enzo</span>
+        <span class="name-b">Baudrenghien</span>
+      </h1>
+      <div class="hero-terminal">
+        <div class="ht-bar">
+          <span class="ht-dot r"></span>
+          <span class="ht-dot y"></span>
+          <span class="ht-dot g"></span>
+          <span class="ht-title">~/identity.sh</span>
+        </div>
+        <div class="ht-body">
+          <div class="ht-line"><span class="ht-prompt">$</span> <span class="ht-cmd" id="htCmd"></span><span
+              class="ht-caret">█</span></div>
+          <div class="ht-output" id="htOutput"></div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="CV-Enzo-Baudrenghien-FR.pdf" download class="btn-ghost cv-btn"> <i class="fa fa-file-pdf"></i> Mon CV
+          (FR) </a>
+        <a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="btn-ghost"><i class="fa fa-download"></i>
+          Synthèse 2025</a>
+        <a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="btn-ghost"><i class="fa fa-download"></i>
+          Synthèse 2026</a>
+        <a href="#projects" class="btn-solid"><i class="fa fa-terminal"></i> Voir les projets</a>
       </div>
     </div>
-    <div class="hero-actions">
-      <a href="CV-Enzo-Baudrenghien-FR.pdf" download class="btn-ghost cv-btn"> <i class="fa fa-file-pdf"></i> Mon CV (FR) </a>
-      <a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="btn-ghost"><i class="fa fa-download"></i> Synthèse 2025</a>
-      <a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="btn-ghost"><i class="fa fa-download"></i> Synthèse 2026</a>
-      <a href="#projects" class="btn-solid"><i class="fa fa-terminal"></i> Voir les projets</a>
+    <div class="scroll-hint"><span>scroll</span>
+      <div class="scroll-line"></div>
     </div>
-  </div>
-  <div class="scroll-hint"><span>scroll</span><div class="scroll-line"></div></div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">01</span><span class="sec-slash">/</span><span>about</span></div>
-    <div class="about-grid">
-      <div class="about-left fade-up">
-        <div class="about-avatar">
-          <div class="avatar-ring"></div>
-          <div class="avatar-inner"><i class="fa fa-user-astronaut"></i></div>
-          <div class="avatar-badge">SISR</div>
-        </div>
-        <div class="about-meta">
-          <div class="meta-row"><i class="fa fa-map-pin"></i> Tourcoing, Nord (59)</div>
-          <div class="meta-row"><i class="fa fa-school"></i> Lycée Saint-Rémi — Léonard de Vinci</div>
-          <div class="meta-row"><i class="fa fa-calendar-days"></i> Promo 2024–2026</div>
-          <div class="meta-row"><i class="fa fa-language"></i> Français · Anglais</div>
-        </div>
-      </div>
-      <div class="about-right fade-up" style="--delay:0.15s">
-        <h2 class="sec-title">À propos <em>de moi</em></h2>
-        <p>Bonjour, je suis <strong>Enzo Baudrenghien</strong>, originaire de <strong>Tourcoing</strong>, étudiant en BTS SIO option SISR au lycée <strong>Saint-Rémi – Léonard de Vinci</strong>.</p>
-        <p>Après une licence en gestion économique à la <mark>Catho de Lille</mark> (2023–2024) que j'ai quittée car le format ne me convenait pas, je me suis réorienté vers l'informatique et les réseaux — une passion concrétisée à travers des projets techniques (MITM SSH, FOG, pfSense, Cisco, ToIP…) et deux stages à la <mark>DNSI Ville de Lille</mark>.</p>
-        <p>Mon objectif : devenir <strong>technicien réseau et sécurité</strong>, en maîtrisant les infrastructures modernes, la gestion cloud (Aruba Central / HPE GreenLake) et la protection des systèmes d'information.</p>
-        <a href="CV-Enzo-Baudrenghien-FR.pdf" download class="btn-ghost btn-sm about-cv-btn"><i class="fa fa-file-pdf"></i> Télécharger mon CV (PDF)</a>
-        <div class="tag-row">
-          <span class="tag">Réseau</span>
-          <span class="tag">Cybersécurité</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Aruba / Cisco</span>
-          <span class="tag">Firewall</span>
-          <span class="tag">Virtualisation</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section section-alt" id="skills">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">02</span><span class="sec-slash">/</span><span>skills</span></div>
-    <h2 class="sec-title fade-up">Compétences <em>techniques</em></h2>
-    <div class="skills-tabs fade-up" style="--delay:0.1s">
-      <button class="stab active" data-t="tech">Techniques</button>
-      <button class="stab" data-t="outils">Outils</button>
-      <button class="stab" data-t="soft">Soft Skills</button>
-    </div>
-    <div class="tab-panel active" id="t-tech">
-      <div class="skill-grid">
-        <div class="skill-block fade-up">
-          <div class="sk-head"><i class="fa fa-network-wired"></i><span>Réseaux</span><span class="sk-pct">85%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="85"></div></div>
-          <ul class="sk-list"><li>TCP/IP, VLAN, Routage inter-VLAN, DMZ</li><li>OSPF, STP, QoS (DSCP / class-map)</li><li>Cisco IOS / Aruba AOS-CX / Packet Tracer</li></ul>
-        </div>
-        <div class="skill-block fade-up" style="--delay:0.05s">
-          <div class="sk-head"><i class="fa fa-shield-halved"></i><span>Cybersécurité</span><span class="sk-pct">78%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="78"></div></div>
-          <ul class="sk-list"><li>Firewall pfSense / Fortinet FortiGate</li><li>VPN IPsec/OpenVPN, MITM SSH, ARP Spoofing</li><li>Metasploit / VSFTPD 2.3.4</li></ul>
-        </div>
-        <div class="skill-block fade-up" style="--delay:0.1s">
-          <div class="sk-head"><i class="fa fa-server"></i><span>Admin Système</span><span class="sk-pct">82%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="82"></div></div>
-          <ul class="sk-list"><li>Linux (Debian, Ubuntu, Kali) · Windows Server</li><li>Active Directory, DHCP, DNS, GPO, PowerShell</li><li>Scripts Bash (backup GFS : rsync + cron)</li></ul>
-        </div>
-        <div class="skill-block fade-up" style="--delay:0.15s">
-          <div class="sk-head"><i class="fa fa-cloud"></i><span>Cloud & Virt.</span><span class="sk-pct">72%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="72"></div></div>
-          <ul class="sk-list"><li>VirtualBox, VMware · Aruba Central / HPE GreenLake</li><li>Zero Touch Provisioning (ZTP), JSON/CSV</li><li>Rclone (backup Google Drive chiffré)</li></ul>
-        </div>
-        <div class="skill-block fade-up" style="--delay:0.2s">
-          <div class="sk-head"><i class="fa fa-phone"></i><span>ToIP</span><span class="sk-pct">65%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="65"></div></div>
-          <ul class="sk-list"><li>FreePBX / Asterisk (SIP PJSIP)</li><li>IVR, Ring Groups, Call Parking, VoiceMail</li><li>Trunk inter-PBX, vidéo H264, Linphone</li></ul>
-        </div>
-        <div class="skill-block fade-up" style="--delay:0.25s">
-          <div class="sk-head"><i class="fa fa-clone"></i><span>Déploiement</span><span class="sk-pct">68%</span></div>
-          <div class="sk-bar"><div class="sk-fill" data-w="68"></div></div>
-          <ul class="sk-list"><li>FOG Project (PXE / clonage réseau, Partclone)</li><li>TFTP, NFS, DHCP intégré FOG</li><li>Veeam (sauvegarde Active Directory)</li></ul>
-        </div>
-      </div>
-    </div>
-    <div class="tab-panel" id="t-outils">
-      <div class="tools-wrap fade-up">
-        <div class="tool-chip"><i class="fa fa-linux"></i> Linux Debian/Ubuntu/Kali</div>
-        <div class="tool-chip"><i class="fa fa-windows"></i> Windows Server 2012/2022</div>
-        <div class="tool-chip"><i class="fa fa-network-wired"></i> Cisco Packet Tracer</div>
-        <div class="tool-chip"><i class="fa fa-fire"></i> pfSense</div>
-        <div class="tool-chip"><i class="fa fa-fire-flame-curved"></i> Fortinet FortiGate</div>
-        <div class="tool-chip"><i class="fa fa-database"></i> MySQL / MariaDB</div>
-        <div class="tool-chip"><i class="fa fa-code-branch"></i> Git / GitHub</div>
-        <div class="tool-chip"><i class="fa fa-desktop"></i> VirtualBox / VMware</div>
-        <div class="tool-chip"><i class="fa fa-magnifying-glass-chart"></i> Wireshark</div>
-        <div class="tool-chip"><i class="fa fa-terminal"></i> Bash / PowerShell</div>
-        <div class="tool-chip"><i class="fa fa-clone"></i> FOG Project</div>
-        <div class="tool-chip"><i class="fa fa-cloud"></i> Aruba Central / HPE GreenLake</div>
-        <div class="tool-chip"><i class="fa fa-phone"></i> FreePBX / Asterisk</div>
-        <div class="tool-chip"><i class="fa fa-shield-virus"></i> Metasploit</div>
-        <div class="tool-chip"><i class="fa fa-box"></i> Rclone / Rsync / Veeam</div>
-        <div class="tool-chip"><i class="fa fa-eye"></i> Zabbix / Nagios</div>
-      </div>
-    </div>
-    <div class="tab-panel" id="t-soft">
-      <div class="soft-grid fade-up">
-        <div class="soft-item"><div class="soft-ico"><i class="fa fa-users"></i></div><h3>Travail en équipe</h3><p>Projets AP2/AP3 en groupe de 4, missions en binôme lors du stage T.I.R.S à la Ville de Lille.</p></div>
-        <div class="soft-item"><div class="soft-ico"><i class="fa fa-lightbulb"></i></div><h3>Curiosité technique</h3><p>Veille continue sur Zero Trust, SD-WAN, Aruba AOS-CX, IA appliquée à la cybersécurité.</p></div>
-        <div class="soft-item"><div class="soft-ico"><i class="fa fa-brain"></i></div><h3>Résolution de problèmes</h3><p>Diagnostic réseau sur sites réels (CTM Lille, école Rostand), résolution d'incidents en autonomie.</p></div>
-        <div class="soft-item"><div class="soft-ico"><i class="fa fa-file-lines"></i></div><h3>Documentation & rigueur</h3><p>Procédure HPE Aruba Central de 30 pages rédigée en autonomie, cartographie réseau Visio.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">03</span><span class="sec-slash">/</span><span>projects</span></div>
-    <h2 class="sec-title fade-up">Mes <em>projets</em></h2>
-    <div class="filter-row fade-up" style="--delay:0.1s">
-      <button class="filt active" data-f="all">Tous</button>
-      <button class="filt" data-f="reseau">Réseau</button>
-      <button class="filt" data-f="securite">Sécurité</button>
-      <button class="filt" data-f="systeme">Système</button>
-      <button class="filt" data-f="toip">ToIP</button>
-    </div>
-    <div class="proj-grid" id="projGrid">
-      <div class="proj-card fade-up" data-c="reseau">
-        <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a href="AP3M1-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN-ver1.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-network-wired"></i></div>
-        <h3>AP3 – CREANET : Infrastructure Réseau M2L</h3>
-        <p>AD, DHCP, DMZ, GLPI, IIS, SMTP, routage multi-VLAN, switch NETGEAR, Webmin sur Debian.</p>
-        <div class="pc-tags"><span>Windows Server</span><span>AD/DNS/DHCP</span><span>GLPI</span><span>DMZ</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="systeme" style="--delay:0.05s">
-        <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a href="AP3M2-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-floppy-disk"></i></div>
-        <h3>AP3 – OpenDATASEC : Sauvegarde GFS</h3>
-        <p>Stratégie GFS : rsync + cron, Veeam AD, rclone chiffré vers Google Drive. NAS QNAP, RADIUS WiFi.</p>
-        <div class="pc-tags"><span>Rsync</span><span>Rclone</span><span>Veeam</span><span>RADIUS</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="reseau" style="--delay:0.1s">
-        <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a href="AP2___Mission_n_3_Visiteurs_at_Home-Baudrenghien.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-globe"></i></div>
-        <h3>AP2 – Visiteurs at Home (GSB)</h3>
-        <p>Réseau isolé pour visiteurs médicaux GSB : DHCP (192.168.150.x), DNS interne, pare-feu.</p>
-        <div class="pc-tags"><span>Windows Server 2012</span><span>DHCP</span><span>DNS</span><span>IIS</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="securite" style="--delay:0.05s">
-        <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="FireWall-Netgear-VPN.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-fire"></i></div>
-        <h3>Firewall Netgear FVS318N + VPN pfSense</h3>
-        <p>WAN statique, LAN VLAN (192.168.10.x), DMZ (11.0.0.x), règles LAN→DMZ/WAN, Apache en DMZ.</p>
-        <div class="pc-tags"><span>Netgear FVS318N</span><span>pfSense</span><span>DMZ</span><span>VLAN</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="securite" style="--delay:0.1s">
-        <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="baudrenghien-tp-mitmSSH.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-user-secret"></i></div>
-        <h3>TP MITM SSH (Man in the Middle)</h3>
-        <p>Attaque MITM via ARP Spoofing + ssh-mitm sous Kali : capture credentials, redirection 22→2222. Contre-mesures ANSSI.</p>
-        <div class="pc-tags"><span>Kali Linux</span><span>ARP Spoofing</span><span>Wireshark</span><span>ECDSA</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="securite" style="--delay:0.15s">
-        <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="TP-Faille-Kali-Réponse.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-bug"></i></div>
-        <h3>TP Exploitation – Faille VSFTPD 2.3.4</h3>
-        <p>CVE-2011-2523 : compilation serveur vulnérable, scan Nmap, exploit Metasploit → shell root distant.</p>
-        <div class="pc-tags"><span>Kali Linux</span><span>Metasploit</span><span>Nmap</span><span>CVE-2011-2523</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="systeme" style="--delay:0.05s">
-        <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a href="FOG-Chassin-Baudrenghien-Renard.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-clone"></i></div>
-        <h3>Déploiement FOG Project (PXE/Imagerie)</h3>
-        <p>Serveur FOG sur Debian 12 : imagerie PXE/TFTP/NFS, DHCP intégré, déploiement Partclone.</p>
-        <div class="pc-tags"><span>FOG Project</span><span>PXE/TFTP</span><span>Debian 12</span><span>NFS</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="systeme" style="--delay:0.1s">
-        <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a href="Configuration_Windows_Server_Core.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-server"></i></div>
-        <h3>Configuration Windows Server Core</h3>
-        <p>2 VMs Server Core jointes au domaine AD (full.west), rôle IIS sans GUI, gestion distante, SConfig.</p>
-        <div class="pc-tags"><span>Windows Server Core</span><span>Active Directory</span><span>IIS</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="reseau" style="--delay:0.05s">
-        <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a href="QoS.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-chart-line"></i></div>
-        <h3>QoS – Qualité de Service Cisco</h3>
-        <p>class-map (FTP), policy-map, marquage DSCP cs7 (prio 7) et cs1 (prio 1), class-based queueing.</p>
-        <div class="pc-tags"><span>Cisco IOS</span><span>DSCP</span><span>QoS</span><span>class-map</span></div>
-      </div>
-      <div class="proj-card fade-up" data-c="toip" style="--delay:0.1s">
-        <div class="pc-top"><span class="pc-cat cat-toip">toip</span><a href="ToIP_TP.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
-        <div class="pc-ico"><i class="fa fa-phone-volume"></i></div>
-        <h3>ToIP – FreePBX / Asterisk</h3>
-        <p>Extensions SIP PJSIP, IVR interactif, Ring Groups, Call Parking, visio H264 Linphone, trunk inter-PBX.</p>
-        <div class="pc-tags"><span>FreePBX</span><span>Asterisk</span><span>SIP PJSIP</span><span>IVR</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STAGES -->
-<section class="section section-alt" id="stages">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">04</span><span class="sec-slash">/</span><span>stages</span></div>
-    <h2 class="sec-title fade-up">Mon <em>parcours pro</em></h2>
-    <div class="timeline">
-      <div class="tl-item fade-up">
-        <div class="tl-meta">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Jan 2026 — Fév 2026</div>
-          <div class="tl-company">DNSI — Mairies de Lille / Lomme / Hellemmes</div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <h3>Stage 2 — Service T.I.R.S</h3>
-            <span class="tl-loc"><i class="fa fa-location-dot"></i> Lille, Nord (59)</span>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">01</span><span class="sec-slash">/</span><span>about</span></div>
+      <div class="about-grid">
+        <div class="about-left fade-up">
+          <div class="about-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-inner"><i class="fa fa-user-astronaut"></i></div>
+            <div class="avatar-badge">SISR</div>
           </div>
-          <p><strong>Tuteur :</strong> Maxime COPPIN — Gestion de l'infrastructure réseau de ~4 500 agents municipaux sur une centaine de sites.</p>
-          <ul class="tl-missions">
-            <li><strong>CTM de Lille</strong> — Configuration CLI + déploiement 12 switchs Aruba 6200F via Aruba Central / HPE GreenLake (ZTP, JSON/CSV, AOS-CX)</li>
-            <li><strong>École Rostand</strong> — 3 switchs Aruba en stack VSF, audit brassage complet, cartographie Excel</li>
-            <li><strong>Collectivité AVA</strong> — Migration 4G → fibre, remplacement switch Cisco par Aruba 2930F SFP</li>
-            <li><strong>Documentation</strong> — Procédure HPE Aruba Central & GreenLake (~30 pages)</li>
-          </ul>
-          <a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="btn-solid btn-sm"><i class="fa fa-download"></i> Synthèse 2026</a>
-          <div class="tl-techs"><span>Aruba AOS-CX</span><span>Aruba Central</span><span>HPE GreenLake</span><span>Fortinet</span><span>VSF Stacking</span><span>Fibre SFP</span></div>
-        </div>
-      </div>
-      <div class="tl-item fade-up" style="--delay:0.15s">
-        <div class="tl-meta">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Mai 2025 — Juin 2025</div>
-          <div class="tl-company">DNSI — Mairies de Lille / Lomme / Hellemmes</div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <h3>Stage 1 — Support utilisateur & réseaux</h3>
-            <span class="tl-loc"><i class="fa fa-location-dot"></i> Lille, Nord (59)</span>
+          <div class="about-meta">
+            <div class="meta-row"><i class="fa fa-map-pin"></i> Tourcoing, Nord (59)</div>
+            <div class="meta-row"><i class="fa fa-school"></i> Lycée Saint-Rémi — Léonard de Vinci</div>
+            <div class="meta-row"><i class="fa fa-calendar-days"></i> Promo 2024–2026</div>
+            <div class="meta-row"><i class="fa fa-language"></i> Français · Anglais</div>
           </div>
-          <p><strong>Tuteur :</strong> Maxime COPPIN — Direction du Numérique et des Systèmes d'Information de la Ville de Lille.</p>
-          <ul class="tl-missions">
-            <li><strong>Support utilisateur</strong> — Helpdesk, diagnostic et résolution d'incidents niveau 1/2</li>
-            <li><strong>Déploiement réseau</strong> — Installation d'équipements Aruba sur sites municipaux</li>
-            <li><strong>Administration</strong> — Gestion du parc, interventions sur postes et infrastructure</li>
-          </ul>
-          <a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="btn-solid btn-sm"><i class="fa fa-download"></i> Synthèse 2025</a>
-          <div class="tl-techs"><span>Aruba</span><span>Windows Server</span><span>Active Directory</span><span>EasyVista (ITSM)</span></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VEILLE -->
-<section class="section" id="watch">
-  <div class="container">
-    <div class="sec-label">
-      <span class="sec-num">05</span><span class="sec-slash">/</span><span>veille</span>
-    </div>
-    <h2 class="sec-title fade-up">Veille <em>technologique</em></h2>
-    <p class="sec-intro fade-up" style="--delay:0.1s">
-      Sujet d'étude : <strong>L'unification de la supervision réseau vers l'observabilité</strong> (Oct. 2024 - Mars 2025). 
-      Analyse de la transition vers les standards ouverts.
-    </p>
-
-    <div class="veille-grid">
-      <div class="veille-card fade-up">
-        <div class="vc-ico"><i class="fa fa-magnifying-glass"></i></div>
-        <div class="vc-tag">Méthodologie</div>
-        <h3>Veille Passive & Active</h3>
-        <p>Combinaison de flux RSS (Centreon, Grafana) et de recherches ciblées sur GitHub pour comprendre les impacts concrets des nouvelles versions.</p>
-        <div class="vc-sources">
-          <span>Newsletters</span><span>Flux RSS</span><span>Docs Officielles</span>
-        </div>
-      </div>
-
-      <div class="veille-card fade-up" style="--delay:0.05s">
-        <div class="vc-ico"><i class="fa fa-standard-definition"></i></div>
-        <div class="vc-tag">Standard</div>
-        <h3>L'essor d'OpenTelemetry (OTel)</h3>
-        <p>OTel s'impose comme le standard universel (85% d'adoption). Il unifie désormais métriques, logs, traces et profiling (stable depuis 2024).</p>
-        <div class="vc-sources">
-          <span>OTel.io</span><span>CNCF</span><span>Observability Survey</span>
-        </div>
-      </div>
-
-      <div class="veille-card fade-up" style="--delay:0.1s">
-        <div class="vc-ico"><i class="fa fa-server"></i></div>
-        <div class="vc-tag">Écosystème</div>
-        <h3>Centreon & Agents CMA</h3>
-        <p>Sortie de nouveaux connecteurs pour Windows/Linux supportant nativement OTel, permettant une supervision sans ouverture de ports SNMP (simplification firewall).</p>
-        <div class="vc-sources">
-          <span>Centreon Blog</span><span>GitHub Plugins</span>
-        </div>
-      </div>
-
-      <div class="veille-card fade-up" style="--delay:0.15s">
-        <div class="vc-ico"><i class="fa fa-chart-line"></i></div>
-        <div class="vc-tag">Cloud Native</div>
-        <h3>Grafana Alloy & Prometheus</h3>
-        <p>Lancement de Grafana Alloy, collecteur universel remplaçant le Grafana Agent. Prometheus confirme sa domination avec 89% d'utilisation.</p>
-        <div class="vc-sources">
-          <span>Grafana Labs</span><span>Prometheus.io</span>
-        </div>
-      </div>
-
-      <div class="veille-card fade-up" style="--delay:0.2s">
-        <div class="vc-ico"><i class="fa fa-road"></i></div>
-        <div class="vc-tag">Roadmap</div>
-        <h3>Zabbix 7.0 & Futur 8.0 LTS</h3>
-        <p>Migration vers l'intégration native d'OpenTelemetry prévue pour la v8.0 (2026). Transition progressive des outils historiques vers l'observabilité.</p>
-        <div class="vc-sources">
-          <span>Zabbix Roadmap</span><span>Forums Tech</span>
-        </div>
-      </div>
-
-      <div class="veille-card fade-up" style="--delay:0.25s">
-        <div class="vc-ico"><i class="fa fa-graduation-cap"></i></div>
-        <div class="vc-tag">Synthèse</div>
-        <h3>Vers l'Observabilité Unifiée</h3>
-        <p>La supervision ne se limite plus au simple "ping" : elle devient une analyse profonde des logs et traces pour les environnements hybrides et cloud.</p>
-        <div class="vc-sources">
-          <span>LeMagIT</span><span>The New Stack</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TABLEAU E5 -->
-<section class="section section-alt" id="e5">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">06</span><span class="sec-slash">/</span><span>tableau E5</span></div>
-    <h2 class="sec-title fade-up">Tableau de <em>synthèse E5</em></h2>
-    <p class="sec-intro fade-up" style="--delay:0.1s">Tableau officiel BTS SIO — Annexe 8-1 Épreuve E5. Compétences mises en œuvre lors de chaque réalisation. Documents <strong>téléchargeables</strong>.</p>
-    <div class="table-wrap fade-up" style="--delay:0.15s">
-      <table class="e5-table">
-        <thead>
-          <tr>
-            <th rowspan="2">Réalisation professionnelle</th>
-            <th rowspan="2">Période</th>
-            <th colspan="6" class="th-group">Compétences mises en œuvre</th>
-            <th rowspan="2">Doc</th>
-          </tr>
-          <tr>
-            <th class="th-comp">Gérer le patrimoine</th>
-            <th class="th-comp">Répondre aux incidents</th>
-            <th class="th-comp">Présence en ligne</th>
-            <th class="th-comp">Mode projet</th>
-            <th class="th-comp">Mettre à disposition</th>
-            <th class="th-comp">Développement pro</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="tr-group"><td colspan="9">▸ Réalisations en cours de formation</td></tr>
-          <tr><td>Exploitation vulnérabilité VSFTPD 2.3.4</td><td class="td-date">15/04/24</td><td></td><td></td><td></td><td></td><td></td><td><span class="comp-badge" title="B6.1">B6.1</span></td><td><a href="TP-Faille-Kali-Réponse.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Déploiement automatisé de postes avec FOG</td><td class="td-date">26/09 – 03/10/25</td><td><span class="comp-badge" title="B1.1">B1.1</span></td><td><span class="comp-badge" title="B2.2">B2.2</span></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="FOG-Chassin-Baudrenghien-Renard.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Administration Windows Server Core & Active Directory</td><td class="td-date">18/11/25</td><td></td><td></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td><span class="comp-badge" title="B6.1">B6.1</span></td><td><a href="Configuration_Windows_Server_Core.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Sécurisation accès distants (VPN) + Firewall Netgear</td><td class="td-date">11/12/25</td><td></td><td></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="FireWall-Netgear-VPN.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Mise en œuvre téléphonie IP (FreePBX)</td><td class="td-date">17/11/25</td><td></td><td></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="ToIP_TP.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Optimisation des flux réseau – QoS</td><td class="td-date">16/10/25</td><td></td><td></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="QoS.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Sécurisation SSH contre attaques MITM</td><td class="td-date">04/12/25</td><td><span class="comp-badge" title="B1.3">B1.3</span></td><td><span class="comp-badge" title="B2.2">B2.2</span></td><td></td><td></td><td><span class="comp-badge" title="B5.1">B5.1</span></td><td><span class="comp-badge" title="B6.2">B6.2</span></td><td><a href="baudrenghien-tp-mitmSSH.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr class="tr-group"><td colspan="9">▸ Réalisations en milieu professionnel — 1ère année</td></tr>
-                    <tr><td>Support utilisateur & déploiement Aruba — Mairie de Lille</td><td class="td-date">19/05 – 27/06/25</td><td><span class="comp-badge" title="B1.1">B1.1</span></td><td><span class="comp-badge" title="B2.1">B2.1</span></td><td></td><td></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td><span class="comp-badge" title="B6.3">B6.3</span></td><td><a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>AP2 M3 – Visiteurs at Home : infrastructure GSB</td><td class="td-date">06/05 – 09/05/25</td><td><span class="comp-badge" title="B1.1">B1.1</span></td><td></td><td></td><td><span class="comp-badge" title="B4.1">B4.1</span></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="AP2___Mission_n_3_Visiteurs_at_Home-Baudrenghien.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr class="tr-group"><td colspan="9">▸ Réalisations en milieu professionnel — 2ème année</td></tr>
-          <tr><td>AP3-M1 : Installation infrastructure réseau M2L (CREANET)</td><td class="td-date">09/09 – 07/10/25</td><td><span class="comp-badge" title="B1.1">B1.1</span></td><td></td><td></td><td><span class="comp-badge" title="B4.1">B4.1</span></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="AP3M1-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN-ver1.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>Administration infra critiques & sécurisation (Fortinet/Aruba) — T.I.R.S</td><td class="td-date">05/01 – 20/02/26</td><td><span class="comp-badge" title="B1.1">B1.1</span></td><td></td><td></td><td><span class="comp-badge" title="B4.1">B4.1</span></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td><span class="comp-badge" title="B6.3">B6.3</span></td><td><a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-          <tr><td>AP3-M2 : Stratégie sauvegarde & sécurisation (OpenDATASEC)</td><td class="td-date">13/11 – 09/12/25</td><td><span class="comp-badge" title="B1.4">B1.4</span></td><td><span class="comp-badge" title="B2.2">B2.2</span></td><td></td><td><span class="comp-badge" title="B4.1">B4.1</span></td><td><span class="comp-badge" title="B5.2">B5.2</span></td><td></td><td><a href="AP3M2-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="sec-label"><span class="sec-num">07</span><span class="sec-slash">/</span><span>contact</span></div>
-    <h2 class="sec-title fade-up">Me <em>contacter</em></h2>
-    <div class="contact-grid">
-      <div class="contact-left fade-up">
-        <p class="contact-intro">Disponible pour toute opportunité professionnelle, stage ou collaboration technique.</p>
-        <div class="contact-links">
-          <a href="mailto:tronytdclan@gmail.com" class="clink">
-            <div class="clink-ico"><i class="fa fa-envelope"></i></div>
-            <div><strong>Email</strong><span>tronytdclan@gmail.com</span></div>
-          </a>
-          <a href="https://www.linkedin.com/in/enzo-baudrenghien-5811b8371/" target="_blank" class="clink">
-            <div class="clink-ico"><i class="fab fa-linkedin"></i></div>
-            <div><strong>LinkedIn</strong><span>enzo-baudrenghien</span></div>
-          </a>
-          <a href="https://github.com/fullwest" target="_blank" class="clink">
-            <div class="clink-ico"><i class="fab fa-github"></i></div>
-            <div><strong>GitHub</strong><span>github.com/fullwest</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="contact-right fade-up" style="--delay:0.15s">
-        <form id="contactForm" class="c-form">
-          <div class="cf-group">
-            <label for="cname">Nom</label>
-            <input type="text" id="cname" placeholder="Votre nom" required/>
+        <div class="about-right fade-up" style="--delay:0.15s">
+          <h2 class="sec-title">À propos <em>de moi</em></h2>
+          <p>Bonjour, je suis <strong>Enzo Baudrenghien</strong>, originaire de <strong>Tourcoing</strong>, étudiant en
+            BTS SIO option SISR au lycée <strong>Saint-Rémi – Léonard de Vinci</strong>.</p>
+          <p>Après une licence en gestion économique à la <mark>Catho de Lille</mark> (2023–2024) que j'ai quittée car
+            le format ne me convenait pas, je me suis réorienté vers l'informatique et les réseaux — une passion
+            concrétisée à travers des projets techniques (MITM SSH, FOG, pfSense, Cisco, ToIP…) et deux stages à la
+            <mark>DNSI Ville de Lille</mark>.
+          </p>
+          <p>Mon objectif : devenir <strong>technicien réseau et sécurité</strong>, en maîtrisant les infrastructures
+            modernes, la gestion cloud (Aruba Central / HPE GreenLake) et la protection des systèmes d'information.</p>
+          <a href="CV-Enzo-Baudrenghien-FR.pdf" download class="btn-ghost btn-sm about-cv-btn"><i
+              class="fa fa-file-pdf"></i> Télécharger mon CV (PDF)</a>
+          <div class="tag-row">
+            <span class="tag">Réseau</span>
+            <span class="tag">Cybersécurité</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Aruba / Cisco</span>
+            <span class="tag">Firewall</span>
+            <span class="tag">Virtualisation</span>
           </div>
-          <div class="cf-group">
-            <label for="cemail">Email</label>
-            <input type="email" id="cemail" placeholder="votre@email.com" required/>
-          </div>
-          <div class="cf-group">
-            <label for="cmsg">Message</label>
-            <textarea id="cmsg" rows="5" placeholder="Votre message..." required></textarea>
-          </div>
-          <button type="submit" class="btn-solid"><i class="fa fa-paper-plane"></i> Envoyer</button>
-          <div class="cf-success" id="cfSuccess"><i class="fa fa-check-circle"></i> Message envoyé !</div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo"><span class="fl-bracket">[</span>Enzo <span class="fl-accent">BAUDRENGHIEN</span><span class="fl-bracket">]</span></div>
-    <p>Portfolio BTS SIO SISR · Lycée Saint-Rémi · 2024–2026</p>
-    <div class="footer-links">
-      <a href="https://github.com/fullwest" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/enzo-baudrenghien-5811b8371/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:enzo.baudrenghien@gmail.com"><i class="fa fa-envelope"></i></a>
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">02</span><span class="sec-slash">/</span><span>skills</span></div>
+      <h2 class="sec-title fade-up">Compétences <em>techniques</em></h2>
+      <div class="skills-tabs fade-up" style="--delay:0.1s">
+        <button class="stab active" data-t="tech">Techniques</button>
+        <button class="stab" data-t="outils">Outils</button>
+        <button class="stab" data-t="soft">Soft Skills</button>
+      </div>
+      <div class="tab-panel active" id="t-tech">
+        <div class="skill-grid">
+          <div class="skill-block fade-up">
+            <div class="sk-head"><i class="fa fa-network-wired"></i><span>Réseaux</span><span class="sk-pct">85%</span>
+            </div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="85"></div>
+            </div>
+            <ul class="sk-list">
+              <li>TCP/IP, VLAN, Routage inter-VLAN, DMZ</li>
+              <li>OSPF, STP, QoS (DSCP / class-map)</li>
+              <li>Cisco IOS / Aruba AOS-CX / Packet Tracer</li>
+            </ul>
+          </div>
+          <div class="skill-block fade-up" style="--delay:0.05s">
+            <div class="sk-head"><i class="fa fa-shield-halved"></i><span>Cybersécurité</span><span
+                class="sk-pct">78%</span></div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="78"></div>
+            </div>
+            <ul class="sk-list">
+              <li>Firewall pfSense / Fortinet FortiGate</li>
+              <li>VPN IPsec/OpenVPN, MITM SSH, ARP Spoofing</li>
+              <li>Metasploit / VSFTPD 2.3.4</li>
+            </ul>
+          </div>
+          <div class="skill-block fade-up" style="--delay:0.1s">
+            <div class="sk-head"><i class="fa fa-server"></i><span>Admin Système</span><span class="sk-pct">82%</span>
+            </div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="82"></div>
+            </div>
+            <ul class="sk-list">
+              <li>Linux (Debian, Ubuntu, Kali) · Windows Server</li>
+              <li>Active Directory, DHCP, DNS, GPO, PowerShell</li>
+              <li>Scripts Bash (backup GFS : rsync + cron)</li>
+            </ul>
+          </div>
+          <div class="skill-block fade-up" style="--delay:0.15s">
+            <div class="sk-head"><i class="fa fa-cloud"></i><span>Cloud & Virt.</span><span class="sk-pct">72%</span>
+            </div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="72"></div>
+            </div>
+            <ul class="sk-list">
+              <li>VirtualBox, VMware · Aruba Central / HPE GreenLake</li>
+              <li>Zero Touch Provisioning (ZTP), JSON/CSV</li>
+              <li>Rclone (backup Google Drive chiffré)</li>
+            </ul>
+          </div>
+          <div class="skill-block fade-up" style="--delay:0.2s">
+            <div class="sk-head"><i class="fa fa-phone"></i><span>ToIP</span><span class="sk-pct">65%</span></div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="65"></div>
+            </div>
+            <ul class="sk-list">
+              <li>FreePBX / Asterisk (SIP PJSIP)</li>
+              <li>IVR, Ring Groups, Call Parking, VoiceMail</li>
+              <li>Trunk inter-PBX, vidéo H264, Linphone</li>
+            </ul>
+          </div>
+          <div class="skill-block fade-up" style="--delay:0.25s">
+            <div class="sk-head"><i class="fa fa-clone"></i><span>Déploiement</span><span class="sk-pct">68%</span>
+            </div>
+            <div class="sk-bar">
+              <div class="sk-fill" data-w="68"></div>
+            </div>
+            <ul class="sk-list">
+              <li>FOG Project (PXE / clonage réseau, Partclone)</li>
+              <li>TFTP, NFS, DHCP intégré FOG</li>
+              <li>Veeam (sauvegarde Active Directory)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t-outils">
+        <div class="tools-wrap fade-up">
+          <div class="tool-chip"><i class="fa fa-linux"></i> Linux Debian/Ubuntu/Kali</div>
+          <div class="tool-chip"><i class="fa fa-windows"></i> Windows Server 2012/2022</div>
+          <div class="tool-chip"><i class="fa fa-network-wired"></i> Cisco Packet Tracer</div>
+          <div class="tool-chip"><i class="fa fa-fire"></i> pfSense</div>
+          <div class="tool-chip"><i class="fa fa-fire-flame-curved"></i> Fortinet FortiGate</div>
+          <div class="tool-chip"><i class="fa fa-database"></i> MySQL / MariaDB</div>
+          <div class="tool-chip"><i class="fa fa-code-branch"></i> Git / GitHub</div>
+          <div class="tool-chip"><i class="fa fa-desktop"></i> VirtualBox / VMware</div>
+          <div class="tool-chip"><i class="fa fa-magnifying-glass-chart"></i> Wireshark</div>
+          <div class="tool-chip"><i class="fa fa-terminal"></i> Bash / PowerShell</div>
+          <div class="tool-chip"><i class="fa fa-clone"></i> FOG Project</div>
+          <div class="tool-chip"><i class="fa fa-cloud"></i> Aruba Central / HPE GreenLake</div>
+          <div class="tool-chip"><i class="fa fa-phone"></i> FreePBX / Asterisk</div>
+          <div class="tool-chip"><i class="fa fa-shield-virus"></i> Metasploit</div>
+          <div class="tool-chip"><i class="fa fa-box"></i> Rclone / Rsync / Veeam</div>
+          <div class="tool-chip"><i class="fa fa-eye"></i> Zabbix / Nagios</div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t-soft">
+        <div class="soft-grid fade-up">
+          <div class="soft-item">
+            <div class="soft-ico"><i class="fa fa-users"></i></div>
+            <h3>Travail en équipe</h3>
+            <p>Projets AP2/AP3 en groupe de 4, missions en binôme lors du stage T.I.R.S à la Ville de Lille.</p>
+          </div>
+          <div class="soft-item">
+            <div class="soft-ico"><i class="fa fa-lightbulb"></i></div>
+            <h3>Curiosité technique</h3>
+            <p>Veille continue sur Zero Trust, SD-WAN, Aruba AOS-CX, IA appliquée à la cybersécurité.</p>
+          </div>
+          <div class="soft-item">
+            <div class="soft-ico"><i class="fa fa-brain"></i></div>
+            <h3>Résolution de problèmes</h3>
+            <p>Diagnostic réseau sur sites réels (CTM Lille, école Rostand), résolution d'incidents en autonomie.</p>
+          </div>
+          <div class="soft-item">
+            <div class="soft-ico"><i class="fa fa-file-lines"></i></div>
+            <h3>Documentation & rigueur</h3>
+            <p>Procédure HPE Aruba Central de 30 pages rédigée en autonomie, cartographie réseau Visio.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="script.js"></script>
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">03</span><span class="sec-slash">/</span><span>projects</span></div>
+      <h2 class="sec-title fade-up">Mes <em>projets</em></h2>
+      <p class="sec-intro fade-up" style="--delay:0.1s">
+        Voici ci-joint, les supports techniques et documentations liés aux travaux pratiques que j'ai menés durant mes
+        deux années de BTS SIO.
+      </p>
+      <div class="filter-row fade-up" style="--delay:0.1s">
+        <button class="filt active" data-f="all">Tous</button>
+        <button class="filt" data-f="reseau">Réseau</button>
+        <button class="filt" data-f="securite">Sécurité</button>
+        <button class="filt" data-f="systeme">Système</button>
+        <button class="filt" data-f="toip">ToIP</button>
+      </div>
+ <div class="proj-grid" id="projGrid">
+        
+        <div class="proj-card fade-up" data-c="securite">
+          <div class="pc-top">
+            <span class="pc-cat cat-securite">sécurité</span>
+            <a href="AP2 - Mission n°2.pdf" download class="pc-dl"><i class="fa fa-download"></i></a>
+          </div>
+          <div class="pc-ico"><i class="fa fa-shield-halved"></i></div>
+          <h3>AP2 – ARCHISEC : Architecture Sécurisée</h3>
+          <p>Mise en place d'une infrastructure de 6 VMs : segmentation réseau, zone DMZ, routage Windows Server et filtrage des accès.</p>
+          <div class="pc-tags"><span>DMZ</span><span>Routage</span><span>WordPress</span><span>Segmentation</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="systeme" style="--delay:0.05s">
+          <div class="pc-top">
+            <span class="pc-cat cat-systeme">système / web</span>
+            <div style="display: flex; gap: 10px;">
+              <a href="asso2024_docFormationArabiRayanBaudrenghienEnzo.pdf" title="Guide HTML/CSS" download class="pc-dl"><i class="fa fa-code"></i></a>
+              <a href="Asso2024_docMailArabi_Rayan-Baudrenghien_Enzo.pdf" title="Étude E-mailing" download class="pc-dl"><i class="fa fa-envelope"></i></a>
+              <a href="asso2024_docMessagerieArabiBaudrenghienV0,1.pdf.pdf" title="Étude Messagerie" download class="pc-dl"><i class="fa fa-comments"></i></a>
+            </div>
+          </div>
+          <div class="pc-ico"><i class="fa fa-users"></i></div>
+          <h3>AP1 – Mission Association : Site Web & Outils</h3>
+          <p>Création d'un site vitrine et étude comparative de solutions SaaS (Brevo, Discord) pour la gestion d'une communauté Esport.</p>
+          <div class="pc-tags"><span>HTML/CSS</span><span>Brevo</span><span>Discord</span><span>Documentation</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="reseau" style="--delay:0.1s">
+          <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a
+              href="AP3M1-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN-ver1.pdf" download class="pc-dl"><i
+                class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-network-wired"></i></div>
+          <h3>AP3 – CREANET : Infrastructure Réseau M2L</h3>
+          <p>AD, DHCP, DMZ, GLPI, IIS, SMTP, routage multi-VLAN, switch NETGEAR, Webmin sur Debian.</p>
+          <div class="pc-tags"><span>Windows Server</span><span>AD/DNS/DHCP</span><span>GLPI</span><span>DMZ</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="systeme" style="--delay:0.15s">
+          <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a
+              href="AP3M2-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN.pdf" download class="pc-dl"><i
+                class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-floppy-disk"></i></div>
+          <h3>AP3 – OpenDATASEC : Sauvegarde GFS</h3>
+          <p>Stratégie GFS : rsync + cron, Veeam AD, rclone chiffré vers Google Drive. NAS QNAP, RADIUS WiFi.</p>
+          <div class="pc-tags"><span>Rsync</span><span>Rclone</span><span>Veeam</span><span>RADIUS</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="reseau" style="--delay:0.2s">
+          <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a
+              href="AP2___Mission_n_3_Visiteurs_at_Home-Baudrenghien.pdf" download class="pc-dl"><i
+                class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-globe"></i></div>
+          <h3>AP2 – Visiteurs at Home (GSB)</h3>
+          <p>Réseau isolé pour visiteurs médicaux GSB : DHCP (192.168.150.x), DNS interne, pare-feu.</p>
+          <div class="pc-tags"><span>Windows Server 2012</span><span>DHCP</span><span>DNS</span><span>IIS</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="securite" style="--delay:0.25s">
+          <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="FireWall-Netgear-VPN.pdf"
+              download class="pc-dl"><i class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-fire"></i></div>
+          <h3>Firewall Netgear FVS318N + VPN pfSense</h3>
+          <p>WAN statique, LAN VLAN (192.168.10.x), DMZ (11.0.0.x), règles LAN→DMZ/WAN, Apache en DMZ.</p>
+          <div class="pc-tags"><span>Netgear FVS318N</span><span>pfSense</span><span>DMZ</span><span>VLAN</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="securite" style="--delay:0.3s">
+          <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="baudrenghien-tp-mitmSSH.pdf"
+              download class="pc-dl"><i class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-user-secret"></i></div>
+          <h3>TP MITM SSH (Man in the Middle)</h3>
+          <p>Attaque MITM via ARP Spoofing + ssh-mitm sous Kali : capture credentials, redirection 22→2222.
+            Contre-mesures ANSSI.</p>
+          <div class="pc-tags"><span>Kali Linux</span><span>ARP Spoofing</span><span>Wireshark</span><span>ECDSA</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="securite" style="--delay:0.35s">
+          <div class="pc-top"><span class="pc-cat cat-securite">sécurité</span><a href="TP-Faille-Kali-Réponse.pdf"
+              download class="pc-dl"><i class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-bug"></i></div>
+          <h3>TP Exploitation – Faille VSFTPD 2.3.4</h3>
+          <p>CVE-2011-2523 : compilation serveur vulnérable, scan Nmap, exploit Metasploit → shell root distant.</p>
+          <div class="pc-tags"><span>Kali Linux</span><span>Metasploit</span><span>Nmap</span><span>CVE-2011-2523</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="systeme" style="--delay:0.4s">
+          <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a
+              href="FOG-Chassin-Baudrenghien-Renard.pdf" download class="pc-dl"><i class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-clone"></i></div>
+          <h3>Déploiement FOG Project (PXE/Imagerie)</h3>
+          <p>Serveur FOG sur Debian 12 : imagerie PXE/TFTP/NFS, DHCP intégré, déploiement Partclone.</p>
+          <div class="pc-tags"><span>FOG Project</span><span>PXE/TFTP</span><span>Debian 12</span><span>NFS</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="systeme" style="--delay:0.45s">
+          <div class="pc-top"><span class="pc-cat cat-systeme">système</span><a
+              href="Configuration_Windows_Server_Core.pdf" download class="pc-dl"><i class="fa fa-download"></i></a>
+          </div>
+          <div class="pc-ico"><i class="fa fa-server"></i></div>
+          <h3>Configuration Windows Server Core</h3>
+          <p>2 VMs Server Core jointes au domaine AD (full.west), rôle IIS sans GUI, gestion distante, SConfig.</p>
+          <div class="pc-tags"><span>Windows Server Core</span><span>Active Directory</span><span>IIS</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="reseau" style="--delay:0.5s">
+          <div class="pc-top"><span class="pc-cat cat-reseau">réseau</span><a href="QoS.pdf" download class="pc-dl"><i
+                class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-chart-line"></i></div>
+          <h3>QoS – Qualité de Service Cisco</h3>
+          <p>class-map (FTP), policy-map, marquage DSCP cs7 (prio 7) et cs1 (prio 1), class-based queueing.</p>
+          <div class="pc-tags"><span>Cisco IOS</span><span>DSCP</span><span>QoS</span><span>class-map</span></div>
+        </div>
+
+        <div class="proj-card fade-up" data-c="toip" style="--delay:0.55s">
+          <div class="pc-top"><span class="pc-cat cat-toip">toip</span><a href="ToIP_TP.pdf" download class="pc-dl"><i
+                class="fa fa-download"></i></a></div>
+          <div class="pc-ico"><i class="fa fa-phone-volume"></i></div>
+          <h3>ToIP – FreePBX / Asterisk</h3>
+          <p>Extensions SIP PJSIP, IVR interactif, Ring Groups, Call Parking, visio H264 Linphone, trunk inter-PBX.</p>
+          <div class="pc-tags"><span>FreePBX</span><span>Asterisk</span><span>SIP PJSIP</span><span>IVR</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGES -->
+  <section class="section section-alt" id="stages">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">04</span><span class="sec-slash">/</span><span>stages</span></div>
+      <h2 class="sec-title fade-up">Mon <em>parcours pro</em></h2>
+      <div class="timeline">
+        <div class="tl-item fade-up">
+          <div class="tl-meta">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Jan 2026 — Fév 2026</div>
+            <div class="tl-company">DNSI — Mairies de Lille / Lomme / Hellemmes</div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card-header">
+              <h3>Stage 2 — Service T.I.R.S</h3>
+              <span class="tl-loc"><i class="fa fa-location-dot"></i> Lille, Nord (59)</span>
+            </div>
+            <p><strong>Tuteur :</strong> Maxime COPPIN — Gestion de l'infrastructure réseau de ~4 500 agents municipaux
+              sur une centaine de sites.</p>
+            <ul class="tl-missions">
+              <li><strong>CTM de Lille</strong> — Configuration CLI + déploiement 12 switchs Aruba 6200F via Aruba
+                Central / HPE GreenLake (ZTP, JSON/CSV, AOS-CX)</li>
+              <li><strong>École Rostand</strong> — 3 switchs Aruba en stack VSF, audit brassage complet, cartographie
+                Excel</li>
+              <li><strong>Collectivité AVA</strong> — Migration 4G → fibre, remplacement switch Cisco par Aruba 2930F
+                SFP</li>
+              <li><strong>Documentation</strong> — Procédure HPE Aruba Central & GreenLake (~30 pages)</li>
+            </ul>
+            <a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="btn-solid btn-sm"><i
+                class="fa fa-download"></i> Synthèse 2026</a>
+            <div class="tl-techs"><span>Aruba AOS-CX</span><span>Aruba Central</span><span>HPE
+                GreenLake</span><span>Fortinet</span><span>VSF Stacking</span><span>Fibre SFP</span></div>
+          </div>
+        </div>
+        <div class="tl-item fade-up" style="--delay:0.15s">
+          <div class="tl-meta">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Mai 2025 — Juin 2025</div>
+            <div class="tl-company">DNSI — Mairies de Lille / Lomme / Hellemmes</div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card-header">
+              <h3>Stage 1 — Support utilisateur & réseaux</h3>
+              <span class="tl-loc"><i class="fa fa-location-dot"></i> Lille, Nord (59)</span>
+            </div>
+            <p><strong>Tuteur :</strong> Maxime COPPIN — Direction du Numérique et des Systèmes d'Information de la
+              Ville de Lille.</p>
+            <ul class="tl-missions">
+              <li><strong>Support utilisateur</strong> — Helpdesk, diagnostic et résolution d'incidents niveau 1/2</li>
+              <li><strong>Déploiement réseau</strong> — Installation d'équipements Aruba sur sites municipaux</li>
+              <li><strong>Administration</strong> — Gestion du parc, interventions sur postes et infrastructure</li>
+            </ul>
+            <a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="btn-solid btn-sm"><i
+                class="fa fa-download"></i> Synthèse 2025</a>
+            <div class="tl-techs"><span>Aruba</span><span>Windows Server</span><span>Active
+                Directory</span><span>EasyVista (ITSM)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VEILLE -->
+  <section class="section" id="watch">
+    <div class="container">
+      <div class="sec-label">
+        <span class="sec-num">05</span><span class="sec-slash">/</span><span>veille</span>
+      </div>
+      <h2 class="sec-title fade-up">Veille <em>technologique</em></h2>
+      <p class="sec-intro fade-up" style="--delay:0.1s">
+        Sujet d'étude : <strong>L'unification de la supervision réseau vers l'observabilité</strong> (Oct. 2024 - Mars
+        2025).
+        Analyse de la transition vers les standards ouverts.
+      </p>
+
+      <div class="veille-grid">
+        <div class="veille-card fade-up">
+          <div class="vc-ico"><i class="fa fa-magnifying-glass"></i></div>
+          <div class="vc-tag">Méthodologie</div>
+          <h3>Veille Passive & Active</h3>
+          <p>Combinaison de flux RSS (Centreon, Grafana) et de recherches ciblées sur GitHub pour comprendre les impacts
+            concrets des nouvelles versions.</p>
+          <div class="vc-sources">
+            <span>Newsletters</span><span>Flux RSS</span><span>Docs Officielles</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.05s">
+          <div class="vc-ico"><i class="fa fa-standard-definition"></i></div>
+          <div class="vc-tag">Standard</div>
+          <h3>L'essor d'OpenTelemetry (OTel)</h3>
+          <p>OTel s'impose comme le standard universel (85% d'adoption). Il unifie désormais métriques, logs, traces et
+            profiling (stable depuis 2024).</p>
+          <div class="vc-sources">
+            <span>OTel.io</span><span>CNCF</span><span>Observability Survey</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.1s">
+          <div class="vc-ico"><i class="fa fa-server"></i></div>
+          <div class="vc-tag">Écosystème</div>
+          <h3>Centreon & Agents CMA</h3>
+          <p>Sortie de nouveaux connecteurs pour Windows/Linux supportant nativement OTel, permettant une supervision
+            sans ouverture de ports SNMP (simplification firewall).</p>
+          <div class="vc-sources">
+            <span>Centreon Blog</span><span>GitHub Plugins</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.15s">
+          <div class="vc-ico"><i class="fa fa-chart-line"></i></div>
+          <div class="vc-tag">Cloud Native</div>
+          <h3>Grafana Alloy & Prometheus</h3>
+          <p>Lancement de Grafana Alloy, collecteur universel remplaçant le Grafana Agent. Prometheus confirme sa
+            domination avec 89% d'utilisation.</p>
+          <div class="vc-sources">
+            <span>Grafana Labs</span><span>Prometheus.io</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.2s">
+          <div class="vc-ico"><i class="fa fa-road"></i></div>
+          <div class="vc-tag">Roadmap</div>
+          <h3>Zabbix 7.0 & Futur 8.0 LTS</h3>
+          <p>Migration vers l'intégration native d'OpenTelemetry prévue pour la v8.0 (2026). Transition progressive des
+            outils historiques vers l'observabilité.</p>
+          <div class="vc-sources">
+            <span>Zabbix Roadmap</span><span>Forums Tech</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.25s">
+          <div class="vc-ico"><i class="fa fa-graduation-cap"></i></div>
+          <div class="vc-tag">Synthèse</div>
+          <h3>Vers l'Observabilité Unifiée</h3>
+          <p>La supervision ne se limite plus au simple "ping" : elle devient une analyse profonde des logs et traces
+            pour les environnements hybrides et cloud.</p>
+          <div class="vc-sources">
+            <span>LeMagIT</span><span>The New Stack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU E5 -->
+  <section class="section section-alt" id="e5">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">07</span><span class="sec-slash">/</span><span>tableau E5</span>
+      </div>
+      <h2 class="sec-title fade-up">Tableau de <em>synthèse E5</em></h2>
+      <p class="sec-intro fade-up" style="--delay:0.1s">Tableau officiel BTS SIO — Annexe 8-1 Épreuve E5. Compétences
+        mises en œuvre lors de chaque réalisation. Documents <strong>téléchargeables</strong>.</p>
+      <div class="table-wrap fade-up" style="--delay:0.15s">
+        <table class="e5-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Réalisation professionnelle</th>
+              <th rowspan="2">Période</th>
+              <th colspan="6" class="th-group">Compétences mises en œuvre</th>
+              <th rowspan="2">Doc</th>
+            </tr>
+            <tr>
+              <th class="th-comp">Gérer le patrimoine</th>
+              <th class="th-comp">Répondre aux incidents</th>
+              <th class="th-comp">Présence en ligne</th>
+              <th class="th-comp">Mode projet</th>
+              <th class="th-comp">Mettre à disposition</th>
+              <th class="th-comp">Développement pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tr-group">
+              <td colspan="9">▸ Réalisations en cours de formation</td>
+            </tr>
+            <tr>
+              <td>Mettre son profil en ligne (LinkedIn, YouTube, Viadeo)</td>
+              <td class="td-date">01/10 – 16/10/24</td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B3.3">B3.3</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B6.3">B6.3</span></td>
+              <td><a href="Mettre son profil en ligne.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a>
+              </td>
+            </tr>
+            <tr class="tr-group">
+              <td colspan="9">▸ Réalisations en milieu professionnel — 1ère année</td>
+            </tr>
+            <tr>
+              <td>Support utilisateur & déploiement Aruba — Mairie de Lille</td>
+              <td class="td-date">19/05 – 27/06/25</td>
+              <td><span class="comp-badge" title="B1.1">B1.1</span></td>
+              <td><span class="comp-badge" title="B2.1">B2.1</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B5.2">B5.2</span></td>
+              <td><span class="comp-badge" title="B6.3">B6.3</span></td>
+              <td><a href="Synthèse-Stage-2025-BAUDRENGHIEN.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+            <tr>
+              <td>AP2-M3 : Visiteurs at Home : infrastructure GSB</td>
+              <td class="td-date">06/05 – 09/05/25</td>
+              <td><span class="comp-badge" title="B1.1">B1.1</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B4.1">B4.1</span></td>
+              <td><span class="comp-badge" title="B5.1">B5.1</span><span class="comp-badge" title="B5.2">B5.2</span>
+              </td>
+              <td></td>
+              <td><a href="AP2___Mission_n_3_Visiteurs_at_Home-Baudrenghien.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+            <tr>
+              <td>AP2-M2 : ARCHISEC – Mise en place d'une architecture sécurisée</td>
+              <td class="td-date">01/04 – 30/04/25</td>
+              <td><span class="comp-badge" title="B1.1">B1.1</span></td>
+              <td></td>
+              <td><span class="comp-badge" title="B3.1">B3.1</span></td>
+              <td><span class="comp-badge" title="B4.1">B4.1</span></td>
+              <td><span class="comp-badge" title="B5.1">B5.1</span><span class="comp-badge" title="B5.2">B5.2</span>
+              </td>
+              <td></td>
+              <td><a href="AP2-M2 _ ARCHISEC.pdf" download class="tbl-dl"><i class="fa fa-download"></i></a></td>
+            </tr>
+            <tr>
+              <td>AP1-M1 : Création et gestion du site Web de l'Association</td>
+              <td class="td-date">02/09 – 27/09/24</td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B3.1">B3.1</span></td>
+              <td></td>
+              <td><span class="comp-badge" title="B5.2">B5.2</span></td>
+              <td><span class="comp-badge" title="B6.3">B6.3</span></td>
+              <td><a href="asso2024_docFormationArabiRayanBaudrenghienEnzo.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+            <tr class="tr-group">
+              <td colspan="9">▸ Réalisations en milieu professionnel — 2ème année</td>
+            </tr>
+            <tr>
+              <td>AP3-M1 : Installation infrastructure réseau M2L (CREANET)</td>
+              <td class="td-date">09/09 – 07/10/25</td>
+              <td><span class="comp-badge" title="B1.1">B1.1</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="comp-badge" title="B4.1">B4.1</span><span class="comp-badge" title="B4.2">B4.2</span>
+              </td>
+              <td><span class="comp-badge" title="B5.1">B5.1</span><span class="comp-badge" title="B5.2">B5.2</span>
+              </td>
+              <td></td>
+              <td><a href="AP3M1-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN-ver1.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+            <tr>
+              <td>AP3-M2 : Stratégie sauvegarde & sécurisation (OpenDATASEC)</td>
+              <td class="td-date">13/11 – 09/12/25</td>
+              <td><span class="comp-badge" title="B1.4">B1.4</span><span class="comp-badge" title="B1.5">B1.5</span>
+              </td>
+              <td><span class="comp-badge" title="B2.2">B2.2</span></td>
+              <td></td>
+              <td><span class="comp-badge" title="B4.1">B4.1</span><span class="comp-badge" title="B4.2">B4.2</span>
+              </td>
+              <td><span class="comp-badge" title="B5.2">B5.2</span></td>
+              <td></td>
+              <td><a href="AP3M2-LAMBLIN-REDJAL-SAUN-YANG-BAUDRENGHIEN.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+            <tr>
+              <td>Administration infra critiques & sécurisation (Fortinet/Aruba) — T.I.R.S</td>
+              <td class="td-date">05/01 – 20/02/26</td>
+              <td><span class="comp-badge" title="B1.1">B1.1</span><span class="comp-badge"
+                  title="B1.4">B1.4</span><span class="comp-badge" title="B1.6">B1.6</span></td>
+              <td><span class="comp-badge" title="B2.2">B2.2</span></td>
+              <td></td>
+              <td><span class="comp-badge" title="B4.1">B4.1</span></td>
+              <td><span class="comp-badge" title="B5.2">B5.2</span></td>
+              <td><span class="comp-badge" title="B6.3">B6.3</span></td>
+              <td><a href="Synthèse-Stage-2026-BAUDRENGHIEN.pdf" download class="tbl-dl"><i
+                    class="fa fa-download"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFS -->
+  <section class="section" id="certifs">
+    <div class="container">
+      <div class="sec-label">
+        <span class="sec-num">07</span><span class="sec-slash">/</span><span>certifications</span>
+      </div>
+      <h2 class="sec-title fade-up">Mes <em>certifications</em></h2>
+      <p class="sec-intro fade-up" style="--delay:0.1s">
+        Validation officielle de mes compétences numériques et techniques.
+      </p>
+
+      <div class="veille-grid">
+        <div class="veille-card fade-up" style="--delay:0.15s">
+          <div class="vc-ico"><i class="fa fa-certificate" style="color: var(--green);"></i></div>
+          <div class="vc-tag" style="color: var(--green2);">Pix</div>
+          <h3>Certification Pix</h3>
+          <p>Évaluation et certification nationale des compétences numériques : cybersécurité, traitement de données,
+            communication et environnement numérique.</p>
+          <div class="vc-sources">
+            <span>Score : XXX points</span><span>Obtenue en 202X</span>
+          </div>
+        </div>
+
+        <div class="veille-card fade-up" style="--delay:0.2s">
+          <div class="vc-ico"><i class="fa fa-shield-halved"></i></div>
+          <div class="vc-tag">ANSSI</div>
+          <h3>SecNumacadémie</h3>
+          <p>Sensibilisation approfondie à la sécurité des systèmes d'information, aux menaces liées au numérique et aux
+            bonnes pratiques d'hygiène informatique.</p>
+          <div class="vc-sources">
+            <span>En cours</span><span>Modules 1 à 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="sec-label"><span class="sec-num">08</span><span class="sec-slash">/</span><span>contact</span></div>
+      <h2 class="sec-title fade-up">Me <em>contacter</em></h2>
+      <div class="contact-grid">
+        <div class="contact-left fade-up">
+          <p class="contact-intro">Disponible pour toute opportunité professionnelle, stage ou collaboration technique.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:tronytdclan@gmail.com" class="clink">
+              <div class="clink-ico"><i class="fa fa-envelope"></i></div>
+              <div><strong>Email</strong><span>tronytdclan@gmail.com</span></div>
+            </a>
+            <a href="https://www.linkedin.com/in/enzo-baudrenghien-5811b8371/" target="_blank" class="clink">
+              <div class="clink-ico"><i class="fab fa-linkedin"></i></div>
+              <div><strong>LinkedIn</strong><span>enzo-baudrenghien</span></div>
+            </a>
+            <a href="https://github.com/fullwest" target="_blank" class="clink">
+              <div class="clink-ico"><i class="fab fa-github"></i></div>
+              <div><strong>GitHub</strong><span>github.com/fullwest</span></div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right fade-up" style="--delay:0.15s">
+          <form id="contactForm" class="c-form">
+            <div class="cf-group">
+              <label for="cname">Nom</label>
+              <input type="text" id="cname" placeholder="Votre nom" required />
+            </div>
+            <div class="cf-group">
+              <label for="cemail">Email</label>
+              <input type="email" id="cemail" placeholder="votre@email.com" required />
+            </div>
+            <div class="cf-group">
+              <label for="cmsg">Message</label>
+              <textarea id="cmsg" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-solid"><i class="fa fa-paper-plane"></i> Envoyer</button>
+            <div class="cf-success" id="cfSuccess"><i class="fa fa-check-circle"></i> Message envoyé !</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="fl-bracket">[</span>Enzo <span class="fl-accent">BAUDRENGHIEN</span><span
+          class="fl-bracket">]</span></div>
+      <p>Portfolio BTS SIO SISR · Lycée Saint-Rémi · 2024–2026</p>
+      <div class="footer-links">
+        <a href="https://github.com/fullwest" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/enzo-baudrenghien-5811b8371/" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="mailto:enzo.baudrenghien@gmail.com"><i class="fa fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
