@@ -481,71 +481,77 @@
         Analyse de la transition vers les standards ouverts.
       </p>
 
-      <div class="veille-grid">
-        <div class="veille-card fade-up">
-          <div class="vc-ico"><i class="fa fa-magnifying-glass"></i></div>
-          <div class="vc-tag">Méthodologie</div>
-          <h3>Veille Passive & Active</h3>
-          <p>Combinaison de flux RSS (Centreon, Grafana) et de recherches ciblées sur GitHub pour comprendre les impacts
-            concrets des nouvelles versions.</p>
-          <div class="vc-sources">
-            <span>Newsletters</span><span>Flux RSS</span><span>Docs Officielles</span>
+<div class="veille-grid">
+        <div class="veille-card fade-up" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 2rem; padding: 3rem;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div class="vc-ico" style="margin-bottom: 0.5rem; color: var(--cyan);"><i class="fa fa-satellite-dish"></i></div>
+              <div class="vc-tag" style="font-size: 1rem; color: var(--cyan); margin-bottom: 0;">Octobre 2025 — Mars 2026</div>
+            </div>
           </div>
-        </div>
 
-        <div class="veille-card fade-up" style="--delay:0.05s">
-          <div class="vc-ico"><i class="fa fa-standard-definition"></i></div>
-          <div class="vc-tag">Standard</div>
-          <h3>L'essor d'OpenTelemetry (OTel)</h3>
-          <p>OTel s'impose comme le standard universel (85% d'adoption). Il unifie désormais métriques, logs, traces et
-            profiling (stable depuis 2024).</p>
-          <div class="vc-sources">
-            <span>OTel.io</span><span>CNCF</span><span>Observability Survey</span>
+          <div>
+            <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">La Supervision Réseau : L'ère de l'Observabilité</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text2);">
+              La supervision réseau, dont l'objectif est d'assurer la disponibilité des services, connaît une transformation majeure. Les outils de 2025-2026 ne se contentent plus de surveiller les pannes de manière isolée. La tendance est à <strong>l'observabilité unifiée</strong> : on centralise désormais la surveillance réseau, l'analyse des logs et le suivi des performances dans un seul et même outil.
+            </p>
           </div>
-        </div>
 
-        <div class="veille-card fade-up" style="--delay:0.1s">
-          <div class="vc-ico"><i class="fa fa-server"></i></div>
-          <div class="vc-tag">Écosystème</div>
-          <h3>Centreon & Agents CMA</h3>
-          <p>Sortie de nouveaux connecteurs pour Windows/Linux supportant nativement OTel, permettant une supervision
-            sans ouverture de ports SNMP (simplification firewall).</p>
-          <div class="vc-sources">
-            <span>Centreon Blog</span><span>GitHub Plugins</span>
-          </div>
-        </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            
+            <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <i class="fa fa-chart-pie" style="color: var(--purple); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text);">Les Standards Actuels</h4>
+              <p style="color: var(--text3); font-size: 0.95rem; margin-bottom: 1rem;">
+                Adoption d'<strong>OpenTelemetry</strong> par tous les éditeurs comme nouveau standard de collecte. Montée en puissance de l'<strong>AIOps</strong> (Intelligence Artificielle) pour détecter automatiquement les anomalies et leurs causes.
+              </p>
+              <div class="vc-sources">
+                <span style="border: 1px solid rgba(138, 43, 226, 0.3); color: var(--text);">AIOps</span>
+                <span style="border: 1px solid rgba(138, 43, 226, 0.3); color: var(--text);">OpenTelemetry</span>
+              </div>
+            </div>
 
-        <div class="veille-card fade-up" style="--delay:0.15s">
-          <div class="vc-ico"><i class="fa fa-chart-line"></i></div>
-          <div class="vc-tag">Cloud Native</div>
-          <h3>Grafana Alloy & Prometheus</h3>
-          <p>Lancement de Grafana Alloy, collecteur universel remplaçant le Grafana Agent. Prometheus confirme sa
-            domination avec 89% d'utilisation.</p>
-          <div class="vc-sources">
-            <span>Grafana Labs</span><span>Prometheus.io</span>
-          </div>
-        </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <i class="fa fa-server" style="color: var(--cyan); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text);">Focus Centreon</h4>
+              <p style="color: var(--text3); font-size: 0.95rem; margin-bottom: 1rem;">
+                La solution évolue avec sa <em>Centreon Observability Platform</em> (v25.10, oct. 2025). Elle regroupe la supervision et un nouveau module de gestion des logs en temps réel, avec une sécurité renforcée (chiffrement TLS, authentification SAML/OAuth).
+              </p>
+              <div class="vc-sources">
+                <span style="border: 1px solid rgba(0, 240, 255, 0.3); color: var(--text);">v25.10</span>
+                <span style="border: 1px solid rgba(0, 240, 255, 0.3); color: var(--text);">Logs intégrés</span>
+              </div>
+            </div>
 
-        <div class="veille-card fade-up" style="--delay:0.2s">
-          <div class="vc-ico"><i class="fa fa-road"></i></div>
-          <div class="vc-tag">Roadmap</div>
-          <h3>Zabbix 7.0 & Futur 8.0 LTS</h3>
-          <p>Migration vers l'intégration native d'OpenTelemetry prévue pour la v8.0 (2026). Transition progressive des
-            outils historiques vers l'observabilité.</p>
-          <div class="vc-sources">
-            <span>Zabbix Roadmap</span><span>Forums Tech</span>
-          </div>
-        </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+              <i class="fa fa-network-wired" style="color: var(--amber); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text);">Focus Zabbix</h4>
+              <p style="color: var(--text3); font-size: 0.95rem; margin-bottom: 1rem;">
+                L'outil open source améliore son interface (tableaux de bord personnalisables) sur sa v7.4. Il prépare sa version majeure 8.0 LTS (2026) avec l'intégration native de l'intelligence artificielle et d'OpenTelemetry.
+              </p>
+              <div class="vc-sources">
+                <span style="border: 1px solid rgba(255, 51, 102, 0.3); color: var(--text);">Open Source</span>
+                <span style="border: 1px solid rgba(255, 51, 102, 0.3); color: var(--text);">Roadmap 8.0</span>
+              </div>
+            </div>
 
-        <div class="veille-card fade-up" style="--delay:0.25s">
-          <div class="vc-ico"><i class="fa fa-graduation-cap"></i></div>
-          <div class="vc-tag">Synthèse</div>
-          <h3>Vers l'Observabilité Unifiée</h3>
-          <p>La supervision ne se limite plus au simple "ping" : elle devient une analyse profonde des logs et traces
-            pour les environnements hybrides et cloud.</p>
-          <div class="vc-sources">
-            <span>LeMagIT</span><span>The New Stack</span>
           </div>
+
+          <div style="margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center;">
+            <span style="color: var(--text3); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 0.5rem;"><i class="fa fa-link"></i> Sources :</span>
+            
+            <a href="https://blog.centreon.com" target="_blank" style="font-family: var(--sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 6px; color: var(--cyan); transition: all 0.3s; text-decoration: none;" onmouseover="this.style.background='rgba(0, 240, 255, 0.15)'" onmouseout="this.style.background='rgba(0, 240, 255, 0.05)'">Blog Centreon</a>
+            
+            <a href="https://blog.zabbix.com" target="_blank" style="font-family: var(--sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 6px; color: var(--cyan); transition: all 0.3s; text-decoration: none;" onmouseover="this.style.background='rgba(0, 240, 255, 0.15)'" onmouseout="this.style.background='rgba(0, 240, 255, 0.05)'">Blog Zabbix</a>
+            
+            <a href="https://www.zabbix.com/roadmap" target="_blank" style="font-family: var(--sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 6px; color: var(--cyan); transition: all 0.3s; text-decoration: none;" onmouseover="this.style.background='rgba(0, 240, 255, 0.15)'" onmouseout="this.style.background='rgba(0, 240, 255, 0.05)'">Roadmap Zabbix</a>
+            
+            <span style="font-family: var(--sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; color: var(--text3);">Communauté The Watch</span>
+            
+            <span style="font-family: var(--sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; color: var(--text3);">Gartner 2025</span>
+          </div>
+
         </div>
       </div>
     </div>
